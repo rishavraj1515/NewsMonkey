@@ -7,11 +7,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <News key="homely" pageSize={5} country="in" />
+    element: <News key="homely" pageSize={5} country="in" category="general" />
   },
   {
     path: '/home',
-    element: <News key="home" pageSize={5} country="in"/>
+    element: <News key="home" pageSize={5} country="in" category="general"/>
   },
   {
     path: '/sports',
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
 
   {
     path: '/general',
-    element: <News key="us" pageSize={5} country="us"  />
+    element: <News key="us" pageSize={5} country="us" category="general" />
   },
 
   {

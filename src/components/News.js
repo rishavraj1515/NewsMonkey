@@ -16,13 +16,14 @@ class News extends Component {
     category: PropTypes.string,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       page: 1,
       loading: false,
     };
+    document.title= `${this.props.category} - NewsMonkey`;
   }
 
   async updateNews() {
@@ -38,15 +39,7 @@ class News extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=df3587237e35477b9df9beaef96ad130&page=1&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    this.setState({
-      articles: parsedData.articles,
-      totalResults: parsedData.totalResults,
-      loading: false,
-    });
+    this.updateNews();
   }
 
   handleNextClick = async () => {
